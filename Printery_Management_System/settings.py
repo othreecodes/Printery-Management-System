@@ -71,6 +71,7 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'app.User'
 WSGI_APPLICATION = 'Printery_Management_System.wsgi.application'
 
 # Database
