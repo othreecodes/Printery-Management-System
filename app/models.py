@@ -26,5 +26,6 @@ class PrintJob(TimeStampedModel):
     printer = models.CharField(max_length=256)
     copies = models.IntegerField()
     cost = models.IntegerField()
-    status = models.CharField()
+    status_choices = (("Started","Started"),("Pending","Pending"),("Completed","Completed"))
+    status = models.CharField(choices=status_choices,max_length=256)
     document = models.ForeignKey(Document)
