@@ -19,7 +19,9 @@ class Client(User):
     """
     Model for all clients
     """
-    pass
+    class Meta:
+        verbose_name = 'Client'
+        verbose_name_plural = 'Clients'
 
 
 class Document(models.Model):
@@ -37,6 +39,7 @@ class PrintJob(TimeStampedModel):
     printer = models.CharField(max_length=256)
     copies = models.IntegerField()
     cost = models.IntegerField()
-    status_choices = (("Started", "Started"), ("Pending", "Pending"), ("Completed", "Completed"))
+    status_choices = (("Started", "Started"), ("Pending",
+                                               "Pending"), ("Completed", "Completed"))
     status = models.CharField(choices=status_choices, max_length=256)
     document = models.ForeignKey(Document)
