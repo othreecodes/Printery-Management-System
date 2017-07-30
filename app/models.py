@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
-
+# from django_dropbox import storage
 
 class User(AbstractUser):
     """
@@ -22,12 +22,14 @@ class Client(User):
     class Meta:
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
-
+    
 
 class Document(models.Model):
     """
     A Document represents a booking to be printed.
     """
+    title = models.CharField(max_length=256,null=True)
+    file = models.FileField(null=True)
     pass
 
 

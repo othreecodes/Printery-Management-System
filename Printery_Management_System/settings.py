@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'storages',
+
 ]
 
 MIDDLEWARE = [
@@ -81,6 +83,13 @@ DATABASES = {
     }
 }
 
+DROPBOX_CONSUMER_KEY = "csgjho6w0vrh6o2"
+DROPBOX_CONSUMER_SECRET = "xhsmaj885qhta6e"
+DROPBOX_ACCESS_TOKEN = "igTw-Q1q0yAAAAAAAAAAONmI9ZocJrTePyUEspBl2HWTNnnM1lkJhAphh3bC3bjZ"
+DROPBOX_ROOT_PATH = "/"
+DROPBOX_OAUTH2_TOKEN = "igTw-Q1q0yAAAAAAAAAAOXF6n0A1NFf1661GKolMzCdlHUmbh3xCZsbQtNkUulB8"
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -99,12 +108,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
