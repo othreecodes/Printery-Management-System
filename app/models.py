@@ -33,7 +33,7 @@ class Document(models.Model):
     file = models.FileField(null=True)
     brief = models.TextField(null=True)
 
-    def __str__
+    def __str__(self):
         return self.title
 
 
@@ -50,5 +50,5 @@ class PrintJob(TimeStampedModel):
     status = models.CharField(choices=status_choices, max_length=256)
     document = models.ForeignKey(Document)
 
-    def __str__
+    def __str__(self):
         return self.charged_to + " - " + self.document
