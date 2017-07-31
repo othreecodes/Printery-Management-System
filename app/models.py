@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
 # from django_dropbox import storage
 
+
 class User(AbstractUser):
     """
     User Model
@@ -22,15 +23,18 @@ class Client(User):
     class Meta:
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
-    
+
 
 class Document(models.Model):
     """
     A Document represents a booking to be printed.
     """
-    title = models.CharField(max_length=256,null=True)
+    title = models.CharField(max_length=256, null=True)
     file = models.FileField(null=True)
-    pass
+    brief = models.TextField(null=True)
+
+    def __str__
+        return self.title
 
 
 class PrintJob(TimeStampedModel):
@@ -45,3 +49,6 @@ class PrintJob(TimeStampedModel):
                                                "Pending"), ("Completed", "Completed"))
     status = models.CharField(choices=status_choices, max_length=256)
     document = models.ForeignKey(Document)
+
+    def __str__
+        return self.charged_to + " - " + self.document
