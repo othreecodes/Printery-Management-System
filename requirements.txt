@@ -3,9 +3,9 @@ autopep8==1.3.2
 certifi==2017.7.27.1
 chardet==3.0.4
 Django==1.10.5
-django-dropbox==0.0.2
 django-jet==1.0.6
 django-model-utils==3.0.0
+django-storages==1.6.4
 dropbox==8.0.0
 idna==2.5
 isort==4.2.15
