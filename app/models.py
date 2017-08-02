@@ -4,25 +4,18 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
 # from django_dropbox import storage
+from model_utils import models as ms
 
 
 class User(AbstractUser):
     """
     User Model
     """
-    name = models.CharField(_('Name of User'), blank=True, max_length=255)
+    # title = models.CharField(_('title of User'), blank=True, max_length=255)
+    phone_number = models.CharField(max_length=30,null=True)
 
     def __str__(self):
         return self.username
-
-
-class Client(User):
-    """
-    Model for all clients
-    """
-    class Meta:
-        verbose_name = 'Client'
-        verbose_name_plural = 'Clients'
 
 
 class Document(models.Model):
@@ -41,7 +34,7 @@ class PrintJob(TimeStampedModel):
     """
     Print Jobs sent into the organisation
     """
-    charged_to = models.ForeignKey(Client)
+    charged_to = models.ForeignKey(User)
     printer = models.CharField(max_length=256)
     copies = models.IntegerField()
     cost = models.IntegerField()
@@ -52,3 +45,21 @@ class PrintJob(TimeStampedModel):
 
     def __str__(self):
         return self.charged_to + " - " + self.document
+
+class PricingManager(models.Manager):
+    pass
+
+class Pricing(models.Model):
+    """
+    Enables admin to change and edit pricings
+    """
+    plan_name = models.CharField(max_length=256)
+    paper_type = models.CharField(max_length=256, null=True)
+    price_per_sheet = models.IntegerField(null=True)
+    discount = models.TextField(null=True, blank=True)
+    # price = models.IntegerField(null=True)
+    objects = PricingManager()
+
+    def __str__(self):
+        return self.plan_name
+

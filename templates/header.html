@@ -64,7 +64,7 @@
                                 <!-- User Block -->
                                 {% if request.user.is_authenticated%}
 								<li>		
-									<a href="#"><i class="search fa fa-user"></i> &nbsp;{{request.user.username}}</a>
+									<a href="/profile"><i class="search fa fa-user"></i> &nbsp;{{request.user.username}}</a>
                                 </li>
                                 {%endif%}
                                 
