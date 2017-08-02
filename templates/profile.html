@@ -9,7 +9,23 @@
 
 
 {% block content %}
-		<!--=== Profile ===-->
+    	<!--=== Breadcrumbs ===-->
+		<div class="breadcrumbs">
+			<div class="container">
+				<h1 class="pull-left">Profile</h1>
+				<ul class="pull-right breadcrumb">
+					<li><a href="/">Home</a></li>
+					<!-- <li><a href="#">Pages</a></li> -->
+					<li class="active">Profile</li>
+				</ul>
+			</div>
+		</div><!--/breadcrumbs-->
+        <!--=== End Breadcrumbs ===-->
+
+
+        <!--=== Profile ===-->
+        
+
 		<div class="container content profile">
 			<div class="row">
 				<!--Left Sidebar-->
@@ -18,49 +34,32 @@
 
 					<ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
 						<li class="list-group-item">
-							<a href="page_profile.html"><i class="fa fa-bar-chart-o"></i> Overall</a>
+							<a href="#"><i class="fa fa-bar-chart-o"></i> Overall</a>
 						</li>
 						<li class="list-group-item">
-							<a href="page_profile_me.html"><i class="fa fa-user"></i> Profile</a>
+							<a href="#"><i class="fa fa-user"></i> Profile</a>
 						</li>
 						<li class="list-group-item">
-							<a href="page_profile_users.html"><i class="fa fa-group"></i> Users</a>
+							<a href="#"><i class="fa fa-group"></i> Users</a>
 						</li>
 						<li class="list-group-item">
-							<a href="page_profile_projects.html"><i class="fa fa-cubes"></i> My Projects</a>
+							<a href="/projects"><i class="fa fa-cubes"></i> My Projects</a>
 						</li>
 						<li class="list-group-item">
-							<a href="page_profile_comments.html"><i class="fa fa-comments"></i> Comments</a>
+							<a href="#"><i class="fa fa-comments"></i> Comments</a>
 						</li>
 						<li class="list-group-item">
-							<a href="page_profile_history.html"><i class="fa fa-history"></i> History</a>
+							<a href="#"><i class="fa fa-history"></i> History</a>
 						</li>
 						<li class="list-group-item active">
-							<a href="page_profile_settings.html"><i class="fa fa-cog"></i> Settings</a>
+							<a href="#"><i class="fa fa-cog"></i> Settings</a>
 						</li>
-					</ul>
-
-					<div class="panel-heading-v2 overflow-h">
-						<h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
-						<a href="#"><i class="fa fa-cog pull-right"></i></a>
-					</div>
-					<h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
-					<div class="progress progress-u progress-xxs">
-						<div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
-						</div>
-					</div>
-					<h3 class="heading-xs">Unify Project <span class="pull-right">85%</span></h3>
-					<div class="progress progress-u progress-xxs">
-						<div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
-						</div>
-					</div>
-					<h3 class="heading-xs">Sony Corporation <span class="pull-right">64%</span></h3>
-					<div class="progress progress-u progress-xxs margin-bottom-40">
-						<div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
-						</div>
-					</div>
-
-					<hr>
+                    </ul>
+                    	<!--Datepicker-->
+					<form action="#" id="sky-form2" class="sky-form">
+						<div id="inline-start"></div>
+					</form>
+					<!--End Datepicker-->
 
 					<!--Notification-->
 					<div class="panel-heading-v2 overflow-h">
@@ -116,11 +115,7 @@
 
 					<div class="margin-bottom-50"></div>
 
-					<!--Datepicker-->
-					<form action="#" id="sky-form2" class="sky-form">
-						<div id="inline-start"></div>
-					</form>
-					<!--End Datepicker-->
+				
 				</div>
 				<!--End Left Sidebar-->
 
@@ -142,7 +137,7 @@
 									<dl class="dl-horizontal">
 										<dt><strong>Your name </strong></dt>
 										<dd>
-											Edward Rooster
+											{{request.user.first_name}} 	{{request.user.last_name}}
 											<span>
 												<a class="pull-right" href="#">
 													<i class="fa fa-pencil"></i>
@@ -160,9 +155,9 @@
 											</span>
 										</dd>
 										<hr>
-										<dt><strong>Company name </strong></dt>
+										<dt><strong>username </strong></dt>
 										<dd>
-											Htmlstream
+										{{request.user.username}}
 											<span>
 												<a class="pull-right" href="#">
 													<i class="fa fa-pencil"></i>
@@ -172,7 +167,7 @@
 										<hr>
 										<dt><strong>Primary Email Address </strong></dt>
 										<dd>
-											edward-rooster@gmail.com
+											{{request.user.email}}
 											<span>
 												<a class="pull-right" href="#">
 													<i class="fa fa-pencil"></i>
@@ -182,17 +177,7 @@
 										<hr>
 										<dt><strong>Phone Number </strong></dt>
 										<dd>
-											(304) 33-2867-499
-											<span>
-												<a class="pull-right" href="#">
-													<i class="fa fa-pencil"></i>
-												</a>
-											</span>
-										</dd>
-										<hr>
-										<dt><strong>Office Number </strong></dt>
-										<dd>
-											(304) 44-9810-296
+										{{request.user.phone_number}}
 											<span>
 												<a class="pull-right" href="#">
 													<i class="fa fa-pencil"></i>
@@ -202,7 +187,7 @@
 										<hr>
 										<dt><strong>Address </strong></dt>
 										<dd>
-											California, US
+											{{request.user.address}}
 											<span>
 												<a class="pull-right" href="#">
 													<i class="fa fa-pencil"></i>

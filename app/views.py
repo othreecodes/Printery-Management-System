@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth import authenticate, login
 from django.contrib.messages import add_message
 from django.contrib import messages
+
+
 
 
 def index(request):
@@ -27,7 +29,7 @@ def auth_user(request):
     print(user)
     if user is not None:
         login(request, user)
-        return render(request, "index.html")
+        return redirect("profile")
     else:
         add_message(request, messages.WARNING, "INVALID USERNAME OR PASSWORD")
         return render(request, "login.html")
@@ -48,3 +50,6 @@ def register(request):
 
 def profile(request):
     return render(request,"profile.html")
+
+def projects(request):
+    return render(request,"projects.html")

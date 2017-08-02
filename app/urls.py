@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^pricing/$', views.pricing, name="pricing"),
     url(r'^signup/$', views.register, name="signup"),
     url(r'^profile/$', views.profile, name="profile"),
+    url(r'^projects/$', views.projects, name="projects"),
 
     
 
