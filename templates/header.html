@@ -46,7 +46,7 @@
 									</a>
                                 </li>
 
-
+								{% if not request.user.is_authenticated%}
                                 <li class="">
 									<a href="/login" class="" >
 										Login
@@ -57,8 +57,14 @@
 									<a href="/signup" class="" >
 										Sign Up
 									</a>
-                                </li>
-                                
+								</li>
+								{%else%}
+								 <li class="">
+									<a href="/logout" class="" >
+										Log out
+									</a>
+								</li>
+								{%endif%}
 
 
                                 <!-- User Block -->

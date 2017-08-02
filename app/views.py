@@ -1,11 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import generic
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import add_message
 from django.contrib import messages
-
-
 
 
 def index(request):
@@ -44,12 +42,25 @@ def pricing(request):
 
     return render(request, "pricing.html", context=data)
 
+
 def register(request):
     if request.method == "GET":
-        return render(request,"register.html")
+        return render(request, "register.html")
+
 
 def profile(request):
-    return render(request,"profile.html")
+    return render(request, "profile.html")
+
 
 def projects(request):
-    return render(request,"projects.html")
+
+    return render(request, "projects.html")
+
+
+def new_project(request):
+    return render(request, "new_project.html")
+
+
+def logout_user(request):
+    logout(request)
+    return redirect("home")
