@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<!-- CSS Page Style -->
+	<link rel="stylesheet" href="/static/css/pages/page_pricing.css">
+
+{% endblock css %}
+
+{% block content %}
+	<!--=== Breadcrumbs ===-->
+		<div class="breadcrumbs">
+			<div class="container">
+				<h1 class="pull-left">Pricing</h1>
+				<ul class="pull-right breadcrumb">
+					<li><a href="/">Home</a></li>
+					<!-- <li><a href="#">Pages</a></li> -->
+					<li class="active">Pricing</li>
+				</ul>
+			</div>
+		</div><!--/breadcrumbs-->
+        <!--=== End Breadcrumbs ===-->
+        
+        	<!--=== Content Part ===-->
+		<div class="container content">
+			<!-- Pricing -->
+			<div class="row margin-bottom-40">
+
+                {%for p in pricing %}
+				<div class="col-md-3 col-sm-6">
+					<div class="pricing hover-effect">
+						<div class="pricing-head">
+							<h3>{{p.plan_name}}</h3>
+							<h4><i>₦</i> {{p.price_per_sheet}}  <span>Per Sheet</span></h4>
+						</div>
+						<ul class="pricing-content list-unstyled">
+							<li><i class="fa fa-inbox"></i> {{p.paper_type}} <span></span></li>
+						</ul>
+						<div class="pricing-footer">
+							<p>{{p.discount}}</p>
+							<a class="btn-u" href="#"><i class="fa fa-shopping-cart"></i> Purchase Now</a>
+						</div>
+					</div>
+                </div>
+                {%endfor%}
+                
+            </div><!--/row-->
+            
+			<!-- End Pricing -->
+        </div>
+    
+
+{% endblock content %}
