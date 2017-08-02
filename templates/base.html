@@ -49,19 +49,21 @@
 		<!--=== Header v3 ===-->
 		{% include "header.html" %}
 		<!--=== End Header v3 ===-->
+		{% if messages %}
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+          {% endfor %}
+      {% endif %}
 
 		{% block slider %}
 		
 		{% endblock slider %}
 
 		<!--=== Content ===-->
-		<div class="container content-md">
 	
 				{% block content %}
 				
 				{% endblock content %}
-		
-		</div>
 		<!--=== End Content ===-->
 
 	{% include "footer.html" %}
