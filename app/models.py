@@ -81,7 +81,12 @@ class Grant(TimeStampedModel):
     amount = models.IntegerField(null=True)
     date_requested = models.DateTimeField(auto_now=True)
     granted = models.BooleanField(default=False)
+    print_job = models.ForeignKey(PrintJob,null=True)
+    reason = models.TextField(null=True)
+
 
     def __str__(self):
-        self.amount + " - "+ self.date_created 
+        return str(self.amount) + " - "+ str(self.created) 
 
+
+    # def on

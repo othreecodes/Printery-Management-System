@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import generic
 from django.contrib.auth.decorators import login_required
-from app.models import User
+from app.models import User, Payment, Document, PrintJob
 
 
 def index(request):
@@ -67,25 +67,53 @@ def register(request):
         user.email = email
         user.set_password(password)
         user.save()
-        add_message(request, messages.INFO, "Registration complete please login")
+        add_message(request, messages.INFO,
+                    "Registration complete please login")
         return redirect("login")
     except Exception as e:
         add_message(request, messages.WARNING, "Please complete the form ")
         return render(request, "register.html")
 
 
+@login_required()
 def profile(request):
+
+    if Payment.objects.filter(payer=request.user):
+        add_message(request, messages.INFO, "You have outstanding paynemts")
+
     return render(request, "profile.html")
 
 
+@login_required()
 def projects(request):
 
     return render(request, "projects.html")
 
+
 @login_required()
 def new_project(request):
-    
-    return render(request, "new_project.html")
+    if request.method == "GET":
+        return render(request, "new_project.html")
+
+    title = request.POST.get('title') or None
+    file = request.POST.get('file') or None
+    copies = request.POST.get('copies') or None
+    brief = request.POST.get('brief') or None
+
+    try:
+        doc = Document()
+        doc.brief = brief
+        doc.title = title
+        doc.file = file
+        doc.save()
+
+        add_message(request, messages.INFO,
+                    "Your Document has bee saved sucessfully")
+        return render(request, "new_project.html")
+    except Exception as e:
+        add_message(request, messages.WARNING,
+                    "An error occured, please try again")
+        return render(request, "new_project.html")
 
 
 def logout_user(request):
