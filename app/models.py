@@ -74,6 +74,10 @@ class Payment(TimeStampedModel):
     paid = models.BooleanField(default=False)
 
 
+class Grant(TimeStampedModel):
+    amount = models.IntegerField(null=True)
+    date_requested = models.DateTimeField(auto_now=True)
+    granted = models.BooleanField(default=False)
 
 # class Grant(models.Model):
 #     job = models.
