@@ -78,7 +78,7 @@ def register(request):
 @login_required()
 def profile(request):
 
-    if Payment.objects.filter(payer=request.user):
+    if Payment.objects.filter(payer=request.user, paid=False):
         add_message(request, messages.INFO,
                     "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
@@ -87,11 +87,14 @@ def profile(request):
 
 @login_required()
 def projects(request):
-    if Payment.objects.filter(payer=request.user):
+    if Payment.objects.filter(payer=request.user, paid=False):
         add_message(request, messages.INFO,
                     "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
-    return render(request, "projects.html")
+    data = {
+        "projects": PrintJob.objects.filter(charged_to=request.user)
+    }
+    return render(request, "projects.html", data)
 
 
 @login_required()
@@ -111,10 +114,19 @@ def new_project(request):
         doc.file = file
         doc.save()
 
+        printjob = PrintJob()
+        printjob.charged_to = request.user
+        printjob.copies = copies
+        printjob.status = "Pending"
+        printjob.document = doc
+
+        printjob.save()
+
         add_message(request, messages.INFO,
-                    "Your Document has bee saved sucessfully")
+                    "Your Document has been saved sucessfully, and has been sent to the admin for approval")
         return render(request, "new_project.html")
     except Exception as e:
+        print(e)
         add_message(request, messages.WARNING,
                     "An error occured, please try again")
         return render(request, "new_project.html")

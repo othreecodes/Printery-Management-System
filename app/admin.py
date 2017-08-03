@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 class UserAdmin(admin.ModelAdmin):
     form = UserCreationForm
     list_display = ['first_name', 'last_name', 'username', 'date_joined']
+    
 
 
 @admin.register(Grant)
@@ -22,6 +23,10 @@ class GrantAdmin(admin.ModelAdmin):
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ['title', 'file']
     search_fields = ['title']
+    actions = ['create_job']
+
+    def create_job(self,queryset):
+        pass
 
 
 @admin.register(PrintJob)

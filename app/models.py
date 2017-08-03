@@ -37,9 +37,9 @@ class PrintJob(TimeStampedModel):
     Print Jobs sent into the organisation
     """
     charged_to = models.ForeignKey(User)
-    printer = models.CharField(max_length=256)
-    copies = models.IntegerField()
-    cost = models.IntegerField()
+    printer = models.CharField(max_length=256,blank=True,null=True)
+    copies = models.IntegerField(blank=True,null=True)
+    cost = models.IntegerField(blank=True,null=True)
     status_choices = (("Started", "Started"),("Approved","Approved") ,("Rejected","Rejected"),("Pending",
                                                "Pending"), ("Completed", "Completed"), ("Paid", "Paid"))
 
