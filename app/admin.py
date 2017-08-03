@@ -10,13 +10,15 @@ class UserAdmin(admin.ModelAdmin):
     form = UserCreationForm
     list_display = ['first_name','last_name','username','date_joined']
 
-    
+@admin.register(Grant)
+class GrantAdmin(admin.ModelAdmin):
+    list_display = ['amount','granted']
+    list_editable = ['granted']
 
 admin.site.register(Document)
 admin.site.register(PrintJob)
 admin.site.register(Pricing)
 admin.site.register(Payment)
-admin.site.register(Grant)
 
 
 

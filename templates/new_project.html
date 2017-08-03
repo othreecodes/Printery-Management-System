@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{%load static%}
+{% block css %}
+	<!-- CSS Page Style -->
+	<link rel="stylesheet" href="/static/css/pages/page_log_reg_v1.css">	
+
+{% endblock css %}
+
+
+{% block content %}
+<!--=== Breadcrumbs ===-->
+		<div class="breadcrumbs">
+			<div class="container">
+				<h1 class="pull-left">Create a new Project</h1>
+				<ul class="pull-right breadcrumb">
+					<li><a href="/">Home</a></li>
+					<!-- <li><a href="#">Pages</a></li> -->
+					<li class="active">Login</li>
+				</ul>
+			</div><!--/container-->
+		</div><!--/breadcrumbs-->
+		<!--=== End Breadcrumbs ===-->
+
+		<!--=== Content Part ===-->
+		<div class="container content">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<form class="reg-page" method="POST" action="" type="application/mulitpart">
+                        {% csrf_token %}
+						<div class="reg-header">
+							<h2>please fill in the following</h2>
+						</div>
+
+						<div class="input-group margin-bottom-20">
+							<span class="input-group-addon"><i class="fa fa-book"></i></span>
+							<input type="text" name="title" placeholder="Title" class="form-control">
+						</div>
+                    
+                        <div class="input-group margin-bottom-20">
+							<span class="input-group-addon"><i class="fa fa-file"></i></span>
+							<input type="file" name="file" placeholder="Title" class="form-control">
+                        </div>
+
+                        <div class="input-group margin-bottom-20">
+							<span class="input-group-addon"><i class="fa fa-number"></i></span>
+							<input type="text" name="copies" placeholder="number of copies" class="form-control">
+                        </div>
+                        
+                        <div class="input-group margin-bottom-20">
+							<span class="input-group-addon"><i class="fa fa-list"></i></span>
+							<textarea type="textarea" name="brief" placeholder="Brief"  rows="6" class="form-control"></textarea>
+						</div>
+					
+						<div class="row">
+							<div class="col-md-6 checkbox">
+								<label><input type="checkbox"> I agree to terms and conditions</label>
+							</div>
+							<div class="col-md-6">
+								<button class="btn-u pull-right" type="submit">Submit</button>
+							</div>
+						</div>
+
+						<hr>		
+					</form>
+				</div>
+			</div><!--/row-->
+		</div><!--/container-->
+		<!--=== End Content Part ===-->
+
+{% endblock content %}
+
+
+
