@@ -8,7 +8,9 @@ from django.contrib.auth.forms import UserCreationForm
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     form = UserCreationForm
+    list_display = ['first_name','last_name','username','date_joined']
 
+    
 
 admin.site.register(Document)
 admin.site.register(PrintJob)
