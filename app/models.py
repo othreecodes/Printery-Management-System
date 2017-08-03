@@ -12,8 +12,9 @@ class User(AbstractUser):
     User Model
     """
     # title = models.CharField(_('title of User'), blank=True, max_length=255)
-    phone_number = models.CharField(max_length=30,null=True)
+    phone_number = models.CharField(max_length=30, null=True)
     address = models.TextField(null=True)
+
 
     def __str__(self):
         return self.username
@@ -40,15 +41,18 @@ class PrintJob(TimeStampedModel):
     copies = models.IntegerField()
     cost = models.IntegerField()
     status_choices = (("Started", "Started"), ("Pending",
-                                               "Pending"), ("Completed", "Completed"))
+                                               "Pending"), ("Completed", "Completed"), ("Paid", "Paid"))
+
     status = models.CharField(choices=status_choices, max_length=256)
     document = models.ForeignKey(Document)
 
     def __str__(self):
-        return self.charged_to + " - " + self.document
+        return self.charged_to.username + " - " + self.document.title
+
 
 class PricingManager(models.Manager):
     pass
+    
 
 class Pricing(models.Model):
     """
@@ -63,4 +67,21 @@ class Pricing(models.Model):
 
     def __str__(self):
         return self.plan_name
+
+class Payment(TimeStampedModel):
+    payer = models.ForeignKey(User)
+    job = models.ForeignKey(PrintJob)
+    paid = models.BooleanField(default=False)
+    amount =  models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.amount
+
+class Grant(TimeStampedModel):
+    amount = models.IntegerField(null=True)
+    date_requested = models.DateTimeField(auto_now=True)
+    granted = models.BooleanField(default=False)
+
+    def __str__(self):
+        self.amount + " - "+ self.date_created 
 

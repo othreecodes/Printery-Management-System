@@ -32,26 +32,32 @@
 							<p>Already Signed Up? Click <a href="/login" class="color-green">Sign In</a> to login your account.</p>
 						</div>
 
-						<label>First Name</label>
-						<input type="text" name="fname" class="form-control margin-bottom-20">
+						<label>First Name<span class="color-red">*</span></label>
+						<input type="text" name="fname" class="form-control margin-bottom-20" required>
 
-						<label>Last Name</label>
-						<input type="text" name="lname" class="form-control margin-bottom-20">
+						<label>Last Name<span class="color-red">*</span></label>
+						<input type="text" name="lname" class="form-control margin-bottom-20" required>
+
+						<label>Username<span class="color-red">*</span></label>
+						<input type="text" name="uname" class="form-control margin-bottom-20" required>
 
 						<label>Email Address <span class="color-red">*</span></label>
-						<input type="text" name="email" class="form-control margin-bottom-20">
+						<input type="text" name="email" class="form-control margin-bottom-20" required>
                         
                         <label>Phone number<span class="color-red">*</span></label>
-                        <input type="text" name="number" class="form-control margin-bottom-20">
+						<input type="text" name="number" class="form-control margin-bottom-20" required>
+						
+						<label>Address<span class="color-red">*</span></label>
+                        <input type="text" name="addy" class="form-control margin-bottom-20" required>
                         
 						<div class="row">
 							<div class="col-sm-6">
 								<label>Password <span class="color-red">*</span></label>
-								<input type="password" name="pass" class="form-control margin-bottom-20">
+								<input type="password" name="pass" class="form-control margin-bottom-20" required>
 							</div>
 							<div class="col-sm-6">
 								<label>Confirm Password <span class="color-red">*</span></label>
-								<input type="password" name="cpass" class="form-control margin-bottom-20">
+								<input type="password" name="cpass" class="form-control margin-bottom-20" required>
 							</div>
 						</div>
 

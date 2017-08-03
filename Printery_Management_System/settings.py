@@ -70,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_URL="/login/"
 AUTH_USER_MODEL = 'app.User'
 WSGI_APPLICATION = 'Printery_Management_System.wsgi.application'
 
@@ -88,7 +89,7 @@ DROPBOX_CONSUMER_SECRET = "xhsmaj885qhta6e"
 DROPBOX_ACCESS_TOKEN = "igTw-Q1q0yAAAAAAAAAAONmI9ZocJrTePyUEspBl2HWTNnnM1lkJhAphh3bC3bjZ"
 # DROPBOX_ROOT_PATH = "/"
 DROPBOX_OAUTH2_TOKEN = "igTw-Q1q0yAAAAAAAAAAOXF6n0A1NFf1661GKolMzCdlHUmbh3xCZsbQtNkUulB8"
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
