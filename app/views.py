@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.views import generic
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import add_message
-from django.contrib import messages
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django.views import generic
+from django.contrib.auth.decorators import login_required
 from app.models import User
 
 
@@ -81,8 +82,9 @@ def projects(request):
 
     return render(request, "projects.html")
 
-
+@login_required()
 def new_project(request):
+    
     return render(request, "new_project.html")
 
 
