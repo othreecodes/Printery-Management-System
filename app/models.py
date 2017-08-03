@@ -68,6 +68,11 @@ class Pricing(models.Model):
     def __str__(self):
         return self.plan_name
 
+class Payment(TimeStampedModel):
+    payer = models.ForeignKey(User)
+    job = models.ForeignKey(PrintJob)
+
+
 
 # class Grant(models.Model):
 #     job = models.
