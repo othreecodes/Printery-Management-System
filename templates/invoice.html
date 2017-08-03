@@ -71,7 +71,7 @@
 					<h3 class="panel-title">Invoice Details</h3>
 				</div>
 				<div class="panel-body">
-					<p>Payment Summary of Jobs</p>
+					<p>Payment Summary of Jobs </p>
 				</div>
 				<table class="table table-striped invoice-table">
 					<thead>
@@ -86,16 +86,16 @@
                     </thead>
                     
 					<tbody>
-
+                     {% for i in invoices %}
 						<tr>
-							<td>1</td>
-							<td>Keyboard</td>
-							<td class="hidden-sm">At vero eos et accusamus etofficia mollitia</td>
-							<td>252</td>
-							<td>$52</td>
-							<td>$18476</td>
+							<td>{{forloop.counter}}</td>
+							<td>{{i.document.title}}</td>
+							<td class="hidden-sm">{{i.document.brief}}</td>
+							<td>{{i.copies}}</td>
+							<td>₦{{i.cost}}</td>
+							<td>₦{{i.cost}}</td>
                         </tr>	
-                        					
+                        			{%endfor%}		
 					</tbody>
 				</table>
 			</div>
@@ -119,7 +119,7 @@
 					<ul class="list-unstyled invoice-total-info">
 						<li><strong>Sub - Total Amount:</strong> ₦109365</li>
 						<li><strong>Discount:</strong> 14.8%</li>
-						<li><strong>VAT ($6):</strong> ₦8371</li>
+						<li><strong>VAT (₦6):</strong> ₦8371</li>
 						<li><strong>Grand Total:</strong> ₦101486</li>
 					</ul>
 					<button class="btn-u sm-margin-bottom-10" onclick="javascript:window.print();"><i class="fa fa-print"></i> Print</button>

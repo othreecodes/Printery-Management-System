@@ -40,7 +40,7 @@ class PrintJob(TimeStampedModel):
     printer = models.CharField(max_length=256)
     copies = models.IntegerField()
     cost = models.IntegerField()
-    status_choices = (("Started", "Started"), ("Pending",
+    status_choices = (("Started", "Started"),("Approved","Approved") ,("Rejected","Rejected"),("Pending",
                                                "Pending"), ("Completed", "Completed"), ("Paid", "Paid"))
 
     status = models.CharField(choices=status_choices, max_length=256)

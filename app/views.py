@@ -79,7 +79,8 @@ def register(request):
 def profile(request):
 
     if Payment.objects.filter(payer=request.user):
-        add_message(request, messages.INFO, "You have outstanding paynemts <a href='/invoice/'>View</a>")
+        add_message(request, messages.INFO,
+                    "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
     return render(request, "profile.html")
 
@@ -87,7 +88,8 @@ def profile(request):
 @login_required()
 def projects(request):
     if Payment.objects.filter(payer=request.user):
-        add_message(request, messages.INFO, "You have outstanding paynemts <a href='/invoice/'>View</a>")
+        add_message(request, messages.INFO,
+                    "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
     return render(request, "projects.html")
 
@@ -125,6 +127,9 @@ def logout_user(request):
 
 @login_required()
 def get_invoice(request):
-    
-    return render(request,'invoice.html')
 
+    jobs = PrintJob.objects.filter(charged_to=request.user, status="Approved")
+    data = {
+        "invoices": jobs
+    }
+    return render(request, 'invoice.html', data)
