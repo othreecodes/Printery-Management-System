@@ -75,7 +75,7 @@ class Payment(TimeStampedModel):
     amount =  models.IntegerField(null=True)
 
     def __str__(self):
-        return self.amount
+        return str(self.amount)
 
 class Grant(TimeStampedModel):
     amount = models.IntegerField(null=True)

@@ -79,13 +79,15 @@ def register(request):
 def profile(request):
 
     if Payment.objects.filter(payer=request.user):
-        add_message(request, messages.INFO, "You have outstanding paynemts")
+        add_message(request, messages.INFO, "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
     return render(request, "profile.html")
 
 
 @login_required()
 def projects(request):
+    if Payment.objects.filter(payer=request.user):
+        add_message(request, messages.INFO, "You have outstanding paynemts <a href='/invoice/'>View</a>")
 
     return render(request, "projects.html")
 
@@ -119,3 +121,10 @@ def new_project(request):
 def logout_user(request):
     logout(request)
     return redirect("home")
+
+
+@login_required()
+def get_invoice(request):
+    
+    return render(request,'invoice.html')
+
