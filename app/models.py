@@ -15,6 +15,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=30, null=True)
     address = models.TextField(null=True)
 
+
     def __str__(self):
         return self.username
 
@@ -66,3 +67,7 @@ class Pricing(models.Model):
 
     def __str__(self):
         return self.plan_name
+
+
+# class Grant(models.Model):
+#     job = models.
