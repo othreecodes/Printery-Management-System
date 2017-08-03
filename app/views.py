@@ -108,6 +108,9 @@ def new_project(request):
     brief = request.POST.get('brief') or None
 
     try:
+        """
+        Creating and saving a new User.
+        """
         doc = Document()
         doc.brief = brief
         doc.title = title
@@ -121,6 +124,7 @@ def new_project(request):
         printjob.document = doc
 
         printjob.save()
+        # send_mail(request.user,)
 
         add_message(request, messages.INFO,
                     "Your Document has been saved sucessfully, and has been sent to the admin for approval")
@@ -133,6 +137,7 @@ def new_project(request):
 
 
 def logout_user(request):
+    # logout the user and redirect home
     logout(request)
     return redirect("home")
 
@@ -145,3 +150,8 @@ def get_invoice(request):
         "invoices": jobs
     }
     return render(request, 'invoice.html', data)
+
+
+def send_mail(user, message):
+    # LOgic for sending emails to user aand admin
+    pass
