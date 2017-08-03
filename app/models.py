@@ -52,7 +52,7 @@ class PrintJob(TimeStampedModel):
 
 class PricingManager(models.Manager):
     pass
-
+    
 
 class Pricing(models.Model):
     """
@@ -71,6 +71,7 @@ class Pricing(models.Model):
 class Payment(TimeStampedModel):
     payer = models.ForeignKey(User)
     job = models.ForeignKey(PrintJob)
+    paid = models.BooleanField(default=False)
 
 
 
