@@ -4489,7 +4489,7 @@ get_filename	../venv/lib/python3.5/importlib/_bootstrap_external.py	/^    def ge
 get_filename	../venv/lib/python3.5/importlib/abc.py	/^    def get_filename(self, fullname):$/;"	kind:member	line:249
 get_ident	../venv/lib/python3.5/_dummy_thread.py	/^def get_ident():$/;"	kind:function	line:65
 get_info	../venv/lib/python3.5/tarfile.py	/^    def get_info(self):$/;"	kind:member	line:772
-get_invoice	../app/views.py	/^def get_invoice(request):$/;"	kind:function	line:146
+get_invoice	../app/views.py	/^def get_invoice(request):$/;"	kind:function	line:147
 get_magic	../venv/lib/python3.5/imp.py	/^def get_magic():$/;"	kind:function	line:59
 get_source	../venv/lib/python3.5/importlib/_bootstrap.py	/^    def get_source(cls, fullname):$/;"	kind:member	line:758
 get_source	../venv/lib/python3.5/importlib/_bootstrap.py	/^    def get_source(cls, fullname):$/;"	kind:member	line:835
@@ -4923,7 +4923,7 @@ localeconv	../venv/lib/python3.5/locale.py	/^def localeconv():$/;"	kind:function
 locked	../venv/lib/python3.5/_dummy_thread.py	/^    def locked(self):$/;"	kind:member	line:140
 lognormvariate	../venv/lib/python3.5/random.py	/^    def lognormvariate(self, mu, sigma):$/;"	kind:member	line:404
 lognormvariate	../venv/lib/python3.5/random.py	/^lognormvariate = _inst.lognormvariate$/;"	kind:variable	line:738
-logout_user	../app/views.py	/^def logout_user(request):$/;"	kind:function	line:139
+logout_user	../app/views.py	/^def logout_user(request):$/;"	kind:function	line:140
 longrange_iterator	../venv/lib/python3.5/_collections_abc.py	/^longrange_iterator = type(iter(range(1 << 1000)))$/;"	kind:variable	line:44
 lookup	../venv/lib/python3.5/shutil.py	/^        def lookup(name):$/;"	kind:function	line:187
 lookup	../venv/lib/python3.5/shutil.py	/^        def lookup(name):$/;"	kind:function	line:192
@@ -5344,7 +5344,7 @@ selective_len	../venv/lib/python3.5/encodings/punycode.py	/^def selective_len(st
 send	../venv/lib/python3.5/_collections_abc.py	/^    def send(self, value):$/;"	kind:member	line:109
 send	../venv/lib/python3.5/_collections_abc.py	/^    def send(self, value):$/;"	kind:member	line:256
 send	../venv/lib/python3.5/types.py	/^    def send(self, val):$/;"	kind:member	line:176
-send_mail	../app/views.py	/^def send_mail(user, message):$/;"	kind:function	line:155
+send_mail	../app/views.py	/^def send_mail(user, message):$/;"	kind:function	line:156
 sep	../venv/lib/python3.5/ntpath.py	/^sep = '\\\\'$/;"	kind:variable	line:27
 sep	../venv/lib/python3.5/posixpath.py	/^sep = '\/'$/;"	kind:variable	line:33
 setBEGINLIBPATH	../venv/lib/python3.5/site.py	/^def setBEGINLIBPATH():$/;"	kind:function	line:362
