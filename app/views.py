@@ -115,6 +115,7 @@ def new_project(request):
         doc.brief = brief
         doc.title = title
         doc.file = file
+        print(doc.file)
         doc.save()
 
         printjob = PrintJob()
