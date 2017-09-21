@@ -11,6 +11,7 @@
 
 *.js linguist-vendored
 *.css linguist-vendored
+*.html linguist-vendored
 
 # Binary files
 # ============
